@@ -81,7 +81,7 @@ class UserController extends \App\Controllers\BaseController
 
         try {
             $client = $this->testing->request('GET', 
-                      $this->router->pathFor('api.user.edit.profil', 
+                      $this->router->pathFor('api.user.edit.profile', 
                       ['id' => $id]));
             return $response->withRedirect($this->router->pathFor(
                    'web.user.edit.profile', $client));
