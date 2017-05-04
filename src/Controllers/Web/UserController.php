@@ -75,7 +75,7 @@ class UserController extends \App\Controllers\BaseController
         }
     }
 
-    public function getEditProfil (Request $request, Response $response, $args)
+    public function getEditProfile (Request $request, Response $response, $args)
     {
         $id   = $args['id'];
 
@@ -91,7 +91,7 @@ class UserController extends \App\Controllers\BaseController
         }
     }
 
-    public function postEditProfil(Request $request, Response $response, $args)
+    public function postEditProfile (Request $request, Response $response, $args)
     {
         $id   = $args['id'];
         $req = $request->getParsedBody();
