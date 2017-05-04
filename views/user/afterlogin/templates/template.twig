@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    {% include 'user/partials/css.twig' %}
+    {% block css %} {% endblock %}
+</head>
+<body class="hold-transition skin-blue-light sidebar-collapse sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            {% include 'user/afterlogin/partials/menu.twig' %}
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                {% include 'user/afterlogin/partials/sidebar.twig'%}
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content">
+                {% block content %} {% endblock %}
+            </section>
+        </div>
+        <footer class="main-footer">
+            {% include 'user/afterlogin/partials/footer.twig'%}
+        </footer>
+    </div>
+</body>
+<html>
+{% include 'user/partials/script.twig' %}
+{% block script %}{% endblock %}

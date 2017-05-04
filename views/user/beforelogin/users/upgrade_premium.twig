@@ -1,0 +1,40 @@
+{% extends 'user/beforelogin/templates/template.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+<div class="container">
+   <h3><a href="{{ path_for('dashboard') }}"><span class="fa fa-arrow-left"></span> Courses</a></h3>
+   <div class="col-lg-6">
+<h2>Over 150 hours of lessons. Let's get you started.</h2>
+<ul class="list-unstyled">
+    <li><span class="fa fa-check"></span> Unlimited access to all content</li>
+     <li><span class="fa fa-check"></span> Stream premium videos</li>
+     <li><span class="fa fa-check"></span> Download videos to watch offline</li>
+     <li><span class="fa fa-check"></span> Get the full source code</li>
+     <li><span class="fa fa-check"></span> Watch free videos before anyone else</li>
+     <li><span class="fa fa-check"></span> Cancel at any time — no questions asked.</li>
+</ul>
+   </div>
+   <div class="col-lg-6">
+      <div class="col-lg-6" style="margin-top:50px;">
+
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Mountly</li>
+        <li class="list-group-item">£6/month</li>
+        <li class="list-group-item">Monthly rolling membership</li>
+        </ul>
+        <center><a href="#" class="btn btn-md btn-primary">Upgrade now</a></center>
+      </div>
+
+      <div class="col-lg-6" style="margin-top:50px;">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Yearly</li>
+        <li class="list-group-item">£60/year</li>
+        <li class="list-group-item">Yearly rolling membership (with two months discount)</li>
+        </ul>
+        <center><a href="#" class="btn btn-md btn-primary">Upgrade now</a></center>
+   </div>
+ </div>
+</div>
+{% endblock %}

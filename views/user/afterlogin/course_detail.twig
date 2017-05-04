@@ -1,0 +1,132 @@
+{% extends 'user/afterlogin/templates/template.twig' %}
+
+{% block title %} Dashboard Course Detail {% endblock %}
+
+{% block content %}
+    <div class="container">
+       <div class="well">
+      <h1>
+        End-to-end Browser Testing with Laravel Dusk
+      </h1>
+      <p>Dusk makes end-to-end testing of your app really easy. We'll start 
+        by setting everything up, then dive in and test a pre-built notes app together!</p>
+        <br>
+            <ul class="list-inline pull-right">
+              <li>
+              <p class="item"> 1 hour 25 min 15</p>
+              </li>
+              <li>
+              <p class="item"> 14 parts</p>
+              </li>
+              <li>
+                <p class="item">0% complete </p>
+              </li>
+            </ul>
+            <br>
+      </div>
+      </div>
+   </section>
+    
+    <section class="content">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="well" style="height:600px;">
+              
+              <iframe class="col-lg-12" height="500px" src="https://www.youtube.com/embed/Roc_E2Mvy3g" frameborder="0" allowfullscreen></iframe>
+              <span class="pull-left"><h3>Introduction</h3></span>
+              <span class="pull-right"><br><button class="btn btn-sm btn-default">Complete and next <i class="fa fa-arrow-right"></i></button></span>
+            </div>
+          </div>
+          <div class="col-lg-9">
+
+              <div class="col-lg-12">
+                <div class="well">
+                <h2>Introduction</h2>
+                <p><a href="">Introduction<br><i>02:43</i></a></p>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="well">
+                <h2>The basics</h2>
+
+                <p><a href="">Setting up the notes app<br><i>02:44</i></a></p>
+                
+                <p><a href="">Installing Dusk, and how it works<br><i>09:42</i></a></p>
+                
+                <p><a href="">Easing in with authentication tests<br><i>06:51</i></a></p>
+                
+                <p><a href="">Common actions with pages<br>
+                <i>11:05</i></a></p>
+
+                </div>
+              </div>
+
+<div class="col-lg-12">
+    <div class="well">
+      <h3>Comment Course</h3>
+                 <div class="box-footer box-comments">
+              <div class="box-comment">
+                <img class="img-circle img-sm" src="http://www.besthomecaremn.com/wp-content/uploads/2016/03/question-mark.svg" alt="User Image">
+
+                <div class="comment-text">
+                      <span class="username">
+                        <a href="{{ path_for('dashboard.profile.another') }}">Maria Gonzales</a>
+                        <span class="text-muted pull-right">8:03 PM Today</span>
+                      </span>
+                  It is a long established fact that a reader will be distracted
+                  by the readable content of a page when looking at its layout.
+                </div>
+                
+              </div>
+              
+              <div class="box-comment">
+                
+                <img class="img-circle img-sm" src="http://www.besthomecaremn.com/wp-content/uploads/2016/03/question-mark.svg" alt="User Image">
+
+                <div class="comment-text">
+                      <span class="username">
+                        <a href="{{ path_for('dashboard.profile.another') }}">Luna Stark</a>
+                        <span class="text-muted pull-right">8:03 PM Today</span>
+                      </span>
+                  It is a long established fact that a reader will be distracted
+                  by the readable content of a page when looking at its layout.
+                </div>
+                
+              </div>
+              
+            </div>
+            
+            <div class="box-footer">
+              <form action="#" method="post">
+                <img class="img-responsive img-circle img-sm" src="http://www.besthomecaremn.com/wp-content/uploads/2016/03/question-mark.svg" alt="Alt Text">
+                <div class="img-push">
+                  <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                </div>
+              </form>
+            </div>
+    </div>
+</div>
+
+          </div>
+          <div class="col-lg-3">
+
+              <div class="col-lg-12">
+                <div class="well">
+                  <h5><i class="fa fa-download"></i> Downloads<br></h5>
+                  <a href="">Download full code </a>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="well">
+                 <h5><i class="fa fa-download"></i> Video Downloads<br></h5>
+                  <a href="">Download current video</a>
+              </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+{% endblock %}
