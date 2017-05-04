@@ -75,7 +75,7 @@ class UserController extends \App\Controllers\BaseController
         }
     }
 
-    public function getEditProfil (Request $request, Response $response)
+    public function getEditProfil (Request $request, Response $response, $args)
     {
         $id   = $args['id'];
 
