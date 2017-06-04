@@ -1,0 +1,54 @@
+<?php
+
+return [
+	//setting display error
+	'displayErrorDetails'	=> true,
+
+	'addContentLengthHeader' => false,
+
+	//setting timezone
+	'timezone'	=> 'Asia/Jakarta',
+
+	//setting language
+	'lang'	=> [
+		'default'	=> 'en',
+	],
+
+	//setting db (with doctrine)
+	'db'	=> [
+		'url'	=> 'mysql://root:1234@db/elearning',
+	],
+
+	'determineRouteBeforeAppMiddleware' => true,
+
+	//setting language
+	'lang'	=> [
+		'default'	=> 'en',
+	],
+
+	//setting view (using twig)
+	'view'	=> [
+		'path'	=> __DIR__. '/../views',
+		'twig'	=> [
+			'cache'	=> false,
+			],
+	],
+
+	'mailer'	=> [
+		'smtp_auth' 	=> true,
+		'smtp_secure'	=> 'tls',
+		'host'			=> 'smtp.gmail.com',
+		'username'		=> 'mitschool6@gmail.com',
+		'password'		=> 'mitschool123',
+		'port'			=> 587,
+		'html'			=> true,
+		'name'			=> 'MIT School',
+	],
+
+	'guzzle'	=> [
+		'base_uri' => 'http://172.17.0.1:8080/public/',
+		'headers'  => [
+			'Authorization'	=> $_SESSION['login']['meta']['token']['token'],
+		],
+	],
+];

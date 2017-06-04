@@ -37,6 +37,22 @@ $container['view'] = function (Container $container) {
 
 	$view->getEnvironment()->addGlobal('baseUrl', 'http://localhost:8080');
 
+	if (isset($_SESSION['login'])) {
+        $view->getEnvironment()->addGlobal('login', $_SESSION['login']);
+    }
+
+    if (isset($_SESSION['errors'])) {
+        $view->getEnvironment()->addGlobal('errors', $_SESSION['errors']);
+        
+        unset($_SESSION['errors']);
+    }
+
+    if ($_SESSION['old']) {
+		$view->getEnvironment()->addGlobal('old', $_SESSION['old']);
+		
+		unset($_SESSION['old']);
+	}
+
 	return $view;
 };
 
@@ -51,15 +67,16 @@ $container['csrf'] = function (Container $container) {
 $container['mailer'] = function (Container $container) {
 	$setting = $container->get('settings')['mailer'];
 
-	$mailer = new PHPMailer;
+	$mailer = new \PHPMailer;
+	$mailer->isSMTP();
 	$mailer->Host = $setting['host'];
-	$mailer->SMTPAuth = $setting['smtp_auth'];
-	$mailer->SMTPSecure = $setting['smtp_secure'];
 	$mailer->Port = $setting['port'];
+	$mailer->SMTPSecure = $setting['smtp_secure'];
+	$mailer->SMTPAuth = $setting['smtp_auth'];
 	$mailer->Username = $setting['username'];
 	$mailer->Password = $setting['password'];
 
-	$mailer->isMailer($setting['html']);
+	$mailer->setFrom($setting['username'], $setting['name']);
 
 	return new \App\Extensions\Mailers\Mailer($container['view'], $mailer);
 };
@@ -67,8 +84,14 @@ $container['mailer'] = function (Container $container) {
 $container['random'] = function (Container $container) {
 	$random = new Random;
 	return $random->getMediumStrengthGenerator();
-}
+};
 
 $container['testing'] = function (Container $container) {
-	return new Client(['base_uri' => 'http://localhost:8080/public/']);
+	$setting = $container->get('settings')['guzzle'];
+	return new Client(['base_uri' => $setting['base_uri'], 'headers' => $setting['headers']]);
 };
+
+Braintree_Configuration::environment('sandbox');
+Braintree_Configuration::merchantId('wvmyjffcrxjxzzdk');
+Braintree_Configuration::publicKey('xyjr9fnf93wjs2x5');
+Braintree_Configuration::privateKey('7d1425b4e9868833641a7981e18bba70');

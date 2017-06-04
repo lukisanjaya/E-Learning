@@ -1,0 +1,21 @@
+default:
+    suites:
+        default:
+            contexts:
+                - FeatureContext:
+                    parameters:
+                        base_url: http://php/public/
+                - ParamContext
+                - UserContext
+                - CourseContext
+                - ArticleContext
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://php/public/
+            sessions:
+                goutte:
+                    goutte: ~
+    # context:
+    #     parameters:
+    #         base_url: http://php/public

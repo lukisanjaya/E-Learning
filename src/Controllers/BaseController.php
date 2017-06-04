@@ -28,7 +28,7 @@ abstract class BaseController
 	 * @param  array|null $meta     additional data
 	 * @return $this->response->withHeader('Content-type', 'application/json')->withJson($response, $response['status']);
 	 */
-	public function responseDetail($message, $status = 200, $data = null, array $meta = null)
+	protected function responseDetail($message, $status = 200, $data = null, array $meta = null)
 	{
 		$response = [
 			'status'	=> $status,
@@ -45,4 +45,39 @@ abstract class BaseController
 
 		return $this->response->withHeader('Content-type', 'application/json')->withJson($response, $response['status']);
 	}
+
+	protected function findToken()
+	{
+		$token = new \App\Models\Users\UserToken;
+		$getToken = $this->request->getHeader('HTTP_AUTHORIZATION')[0];
+		$findToken = $token->find('token', $getToken)->fetch();
+
+		if ($findToken) {
+			return $findToken;
+		}
+
+		return false;
+	}
+
+	protected function validateUser($token, $query, $except = false)
+    {
+        $userToken = new \App\Models\Users\UserToken;
+        $userId = $userToken->find('token', $token)->fetch()['user_id'];
+
+        $role = new \App\Models\Users\UserRole;
+        $roleUser = $role->find('user_id', $userId)->fetch()['role_id'];
+
+        if ($except = true) {
+        	if ($userId != $query['user_id'] && $roleUser > 1) {
+            	return false;
+        	}
+        } else {
+        	if ($userId != $query['user_id']) {
+            	return false;
+        	}
+        }
+        
+
+        return true;
+    }
 }
